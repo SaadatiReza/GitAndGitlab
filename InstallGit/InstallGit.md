@@ -77,3 +77,7 @@ Once the last execution ends, you must run the below command to install it.
 ```bash
 make prefix=/usr/local install
 ```
+To make sure that Git is installed on your machine you must run the below command on your machine.
+```bash
+git --version
+```
