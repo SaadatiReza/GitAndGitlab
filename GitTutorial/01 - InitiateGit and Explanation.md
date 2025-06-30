@@ -147,4 +147,10 @@ git log -p
 # it shows the commits in one line for each
 git log --oneline
 git log --oneline 
+git log --pretty=oneline 
+git log --after="30 minutes ago"
+git log --after="1 hour ago"
+git log --after="1 days ago"
+git log --before="Sun Jun 29 04:20:10 2025"
+git log --before="Sun Jun 29 04:10:10 2025"
 ```
