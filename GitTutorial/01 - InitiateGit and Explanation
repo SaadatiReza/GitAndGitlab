@@ -1,0 +1,41 @@
+# How to Create a simple Git project
+You could create a repository in two main ways
+* Create a directory then switch to the new directory then execute the below command
+```bash
+git init
+```
+* You could automatically create and initiate git repository at the same time with the below command.
+```bash
+git init "the name of the repo"
+```
+
+# File  Lifecycle
+
+There are 4 different state for each file in git.
+* Untracked
+* Unmodified
+* Modified
+* Staged
+
+
+# Git configurations can be set at three levels
+* system --> For running Operation System
+* global --> For a certain User
+* local --> For a specified Repository
+
+You can check the set config in operating system with the below command
+``` 
+git config --list
+```
+You can set the credential for user in global wide with the below command
+```
+git config --global user.name ""
+git config --global user.email ""
+```
+you could set this configuration at local level
+```
+git config --local user.name ""
+git config --local user.email ""
+```
+
+keep in mind that when you set the configuration in local level this configuration will be kept in **.git** directory,however, when it comes to global level, this configuration will be placed in **$HOME/.gitconfig**
