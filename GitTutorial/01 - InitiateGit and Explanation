@@ -83,3 +83,22 @@ The refs/heads/ subdirectory contains local branches (e.g., refs/heads/main).
 
 HEAD can be either a symbolic ref or a detached SHA-1 reference in detached HEAD state.
 
+# Difference between info/exclude and .gitignore
+
+The difference between .gitignore and info/exclude lies in their purpose and scope: .gitignore is a project-level file that is typically committed to the repository to share ignore rules with all collaborators, while info/exclude is a local-only ignore file found inside the .git/info directory and is not committed to version control. Use .gitignore for patterns that should be consistently ignored across all environments, and info/exclude for temporary or personal ignore rules that apply only to your local clone of the repository.
+
+# How to read Git objects file
+```bash
+# List object directories (first two characters of object hash)
+ls .git/objects
+
+# Example: suppose you have an object with hash ab1234...
+
+# You can read the object using git cat-file
+git cat-file -p ab1234
+```
+* Git stores objects in .git/objects under subdirectories named by the first two characters of the SHA-1 hash. The remaining 38 characters form the filename.
+
+* For example, object ab1234... is stored as: .git/objects/ab/1234...
+
+* You should not try to manually assemble the path — just use the full hash with git cat-file -p <hash>.
