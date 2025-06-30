@@ -102,3 +102,49 @@ git cat-file -p ab1234
 * For example, object ab1234... is stored as: .git/objects/ab/1234...
 
 * You should not try to manually assemble the path — just use the full hash with git cat-file -p <hash>.
+
+
+# Git add Hunk
+To add a hunk in Git, you can use interactive staging with the git add **-p** (or --patch) command. Here's how it works:
+```
+git add -p
+
+```
+| Option | Description                                      |
+| ------ | ------------------------------------------------ |
+| `y`    | Stage this hunk                                  |
+| `n`    | Do **not** stage this hunk                       |
+| `q`    | Quit; do not stage this or any further hunks     |
+| `a`    | Stage this hunk and all the remaining ones       |
+| `d`    | Do not stage this or any further hunks           |
+| `s`    | Split this hunk into smaller hunks (if possible) |
+| `e`    | Manually edit the hunk before staging            |
+| `?`    | Show help for the options                        |
+
+
+# git commit -am (add and commit at the same time)
+git commit -am command is a shorthand for staging and committing tracked files in one step.
+**Note** This doesn't work for Untracked files.
+
+# git commit --amend
+git commit --amend lets you modify the most recent commit — either its message, its contents, or both.
+```
+git add missing-file.js
+git commit --amend --no-edit
+```
+#### Adds the new file to the last commit without changing its message
+
+# git log
+You can list the executed commit with below command.
+```
+git log
+```
+you can retrieve the certain number of commit as follows
+```
+git log -10
+# it will also show the changes between commits
+git log -p
+# it shows the commits in one line for each
+git log --oneline
+git log --oneline 
+```
