@@ -1,0 +1,10 @@
+# How to Create a simple Git project
+You could create a repository in two main ways
+* Create a directory then switch to the new directory then execute the below command
+```bash
+git init
+```
+* You could automatically create and initiate git repository at the same time with the below command.
+```bash
+git init "the name of the repo"
+```
