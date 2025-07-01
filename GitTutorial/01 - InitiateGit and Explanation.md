@@ -154,3 +154,46 @@ git log --after="1 days ago"
 git log --before="Sun Jun 29 04:20:10 2025"
 git log --before="Sun Jun 29 04:10:10 2025"
 ```
+
+
+# Git Diff with HEAD
+The command below shows the difference between the working directory and the last commit (referred to as HEAD):
+
+```
+git diff HEAD
+```
+This compares all files (both staged and unstaged changes) with the latest commit. It helps you see everything that has changed in your working directory, whether you've staged it or not.
+
+If you want to narrow it down to a specific file:
+```
+git diff HEAD -- "file-name"
+```
+# Git Reset
+
+The git reset command is used to undo changes by moving the HEAD and optionally modifying the index (staging area) and working directory.
+
+This unstages files that were previously added with git add, but does not delete any changes in the working directory.
+
+
+# Restore a File to the Last Committed Version
+```
+git checkout HEAD -- "file-name"
+
+```
+# git revert
+The git revert command is used to undo a commit by creating a new commit that reverses the changes introduced by a previous one — without rewriting history.
+
+# Difference Between git reset and git revert
+
+| Feature                       | `git reset`                                                                                  | `git revert`                                                    |
+| ----------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Purpose**                   | Moves `HEAD` to a previous commit and optionally modifies staging area and working directory | Creates a new commit that undoes changes from a previous commit |
+| **History**                   | Rewrites history (destructive)                                                               | Preserves history (non-destructive)                             |
+| **Commit Removed?**           | Yes (if you reset to an earlier commit)                                                      | No, original commit stays; changes are reversed                 |
+| **Safe for Shared Branches?** | ❌ No (can confuse collaborators)                                                             | ✅ Yes (safe for public/shared branches)                         |
+| **Working Directory**         | Can discard or keep changes, depending on flags (`--soft`, `--mixed`, `--hard`)              | Only affects content introduced by reverted commit              |
+| **Creates New Commit?**       | ❌ Not unless followed by a new commit                                                        | ✅ Yes                                                           |
+
+* Use git reset when you want to move the current branch backward, possibly discarding or unstaging changes — mostly for local, private changes.
+
+* Use git revert when you want to safely undo a commit in a public or shared branch by creating a new commit that reverses the changes
