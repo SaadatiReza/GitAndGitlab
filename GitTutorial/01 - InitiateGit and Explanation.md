@@ -156,6 +156,7 @@ git log --before="Sun Jun 29 04:10:10 2025"
 ```
 
 
+
 # Git Diff with HEAD
 The command below shows the difference between the working directory and the last commit (referred to as HEAD):
 
@@ -168,6 +169,59 @@ If you want to narrow it down to a specific file:
 ```
 git diff HEAD -- "file-name"
 ```
+  
+=======
+# Remove File in git
+If you use the native rm command in your directory, Git will detect the file removal as a change. You must then stage the deletion with git add and commit it:
+```bash
+rm "file-name"
+git add "file-name"
+git commit -m "Remove file-name"
+
+```
+Alternatively, you can use git rm, which removes the file and stages the deletion in one step:
+
+```bash
+git rm "file-name"
+git commit -m "Remove file-name"
+```
+
+
+# Rename File
+If you use the native mv command to rename a file, Git will treat this as a deletion of the old file and the creation of a new one. This change must be staged and committed manually.
+
+To simplify this, you can use git mv, which renames the file and stages the change in one step:
+```bash
+git mv "old-name" "new-name"
+git commit -m "Rename old-name to new-name"
+```
+# Git diff
+The following command shows the differences between the working directory and the staged version (or the last committed version) of a specified file:
+```
+git diff "file-name"
+
+```
+This displays line-by-line changes that have been made to "file-name" since the last commit, but not yet staged. If you want to compare the staged version to the last commit, use:
+
+```bash
+git diff --cached "file-name"
+```
+
+# Git Diff with HEAD
+
+The command below shows the difference between the working directory and the last commit (referred to as HEAD):
+```
+git diff HEAD
+```
+
+This compares all files (both staged and unstaged changes) with the latest commit. It helps you see everything that has changed in your working directory, whether you've staged it or not.
+
+If you want to narrow it down to a specific file:
+```
+git diff HEAD -- "file-name"
+```
+=======
+
 # Git Reset
 
 The git reset command is used to undo changes by moving the HEAD and optionally modifying the index (staging area) and working directory.
@@ -197,3 +251,4 @@ The git revert command is used to undo a commit by creating a new commit that re
 * Use git reset when you want to move the current branch backward, possibly discarding or unstaging changes — mostly for local, private changes.
 
 * Use git revert when you want to safely undo a commit in a public or shared branch by creating a new commit that reverses the changes
+
