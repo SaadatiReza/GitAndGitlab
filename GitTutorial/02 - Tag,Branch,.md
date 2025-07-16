@@ -31,3 +31,17 @@ git branch -d
 # detached head
 
 # fast-forward merge, ORT merge
+
+# git merge
+first of all you should checkout to your destination branch then use **git merge "branch name"** to merge them
+
+
+# git conflict
+
+
+
+# git branch --merged, git branch --no-merged
+
+
+# Remote Repository
+
